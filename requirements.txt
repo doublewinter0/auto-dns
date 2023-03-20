@@ -1,0 +1,12 @@
+-i https://pypi.tuna.tsinghua.edu.cn/simple
+APScheduler
+requests
+aiohttp
+PyYAML
+python-telegram-bot
+pythonping
+prettytable
+tcppinglib
+munch
+lxml
+pyaml-env

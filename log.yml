@@ -1,0 +1,30 @@
+version: 1
+formatters:
+  simple:
+    format: "%(asctime)s %(levelname)s => %(message)s"
+  standard:
+    format: "%(asctime)s %(levelname)s [%(name)s:%(lineno)s:%(threadName)s] => %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: standard
+    level: INFO
+    stream: ext://sys.stdout
+  error:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: standard
+    filename: runtime/log/error.log
+    maxBytes: 10485760 # 10M
+    backupCount: 30
+    encoding: utf8
+loggers:
+  apscheduler:
+    level: WARN
+    # handlers: []
+  src:
+    level: INFO
+    # handlers: [ console, error ]
+root:
+  level: INFO
+  handlers: [ console, error ]

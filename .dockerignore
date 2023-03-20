@@ -1,0 +1,10 @@
+.git/
+.pylintrc
+
+*.md
+.env.example
+
+venv/
+runtime/
+test/
+tmp/

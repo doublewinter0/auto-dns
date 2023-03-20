@@ -1,0 +1,25 @@
+qcloud: # 青云 API 密钥
+  access_key_id: !ENV ${QC_ACCESS_KEY_ID}
+  access_key_secret: !ENV ${QC_ACCESS_KEY_SECRET}
+
+record: # 待更新的记录 id
+  ids: !ENV ${RECORD_IDS}
+
+force_update:
+  enabled: true # 是否启动强制更新
+  interval: 7 # 更新间隔, 单位为 day. 默认为 7 天
+
+clash:
+  enabled: true # 运行环境是否启动了 OpenClash
+  host: !ENV ${CLASH_HOST}
+  port: !ENV ${CLASH_PORT}
+  user: !ENV ${CLASH_USER}
+  passwd: !ENV ${CLASH_PASSWD}
+
+notify:
+  telegram:
+    enabled: true # 是否开启 Telegram Bot 通知
+    telegram_bot_token: !ENV ${TELEGRAM_BOT_TOKEN}
+    telegram_chat_id: !ENV ${TELEGRAM_CHAT_ID}
+
+

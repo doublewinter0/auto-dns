@@ -1,0 +1,15 @@
+### IDEA ###
+.idea/
+*.iml
+
+### Python ###
+venv/
+*.pyc
+
+### MISC ###
+*.log
+.env
+
+runtime/
+tmp/
+lib/

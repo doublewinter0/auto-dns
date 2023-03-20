@@ -1,0 +1,17 @@
+# version: "3.8"
+
+services:
+  cdn-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cdn-proxy
+    env_file:
+      - ./.env
+    hostname: cdn-proxy
+    image: erdong/cdn-proxy:latest
+    network_mode: "host"
+    privileged: true
+    restart: always
+    volumes:
+      - ./runtime:/app/runtime
