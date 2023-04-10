@@ -1,10 +1,10 @@
-FROM python:3.10-slim
+FROM python:3-slim
 
 ENV TZ Asia/Shanghai
 ENV APP cdn-proxy
 
 LABEL maintainer="erdong.me@gamil.com"
-LABEL version="1.0.0"
+LABEL version="1.0.1"
 
 VOLUME /app
 
