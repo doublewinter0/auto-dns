@@ -17,13 +17,14 @@ CHAT_ID = tp.telegram_chat_id
 logger = logging.getLogger(__name__)
 
 
-async def __send_text(chat_id: Union[int, str], text: str, parse_mode: str,
-                      try_num: int = NumberConstant.THREE) -> None:
+async def __send_text(chat_id: Union[int, str], text: str, parse_mode: str, read_timeout: int,
+                      write_timeout: int, try_num: int = NumberConstant.THREE) -> None:
     bot = telegram.Bot(token=BOT_TOKEN)
     tried_num = NumberConstant.ONE
     while tried_num < try_num:
         try:
-            await bot.send_message(chat_id=chat_id, text=text, parse_mode=parse_mode)
+            await bot.send_message(chat_id=chat_id, text=text, parse_mode=parse_mode,
+                                   read_timeout=read_timeout, write_timeout=write_timeout)
             return
         except Exception:
             logger.error('发送通知失败, 异常栈如下:', exc_info=True)
@@ -33,7 +34,8 @@ async def __send_text(chat_id: Union[int, str], text: str, parse_mode: str,
             tried_num += NumberConstant.ONE
 
 
-async def send_nip_info(nip_info: List[Tuple]) -> None:
+async def send_nip_info(nip_info: List[Tuple], read_timeout=NumberConstant.TEN,
+                        write_timeout=NumberConstant.TEN) -> None:
     header = ['IP_ADDR', 'DELAY(ms)', 'DOWNLOAD(MB/s)']
     table = pt.PrettyTable(header, border=True, hrules=ALL)
     for h in header:
@@ -46,7 +48,10 @@ async def send_nip_info(nip_info: List[Tuple]) -> None:
         txt = 'CDN 记录已更新, 详情见表格'
         logger.info('%s\n%s', txt, table)
 
-        await __send_text(CHAT_ID, f"<b>{txt}</b>", parse_mode=ParseMode.HTML)
-        await __send_text(CHAT_ID, f'```\n{table}```', parse_mode=ParseMode.MARKDOWN_V2)
+        await __send_text(CHAT_ID, f"<b>{txt}</b>", parse_mode=ParseMode.HTML,
+                          read_timeout=read_timeout, write_timeout=write_timeout)
+        await __send_text(CHAT_ID, f'```\n{table}```', parse_mode=ParseMode.MARKDOWN_V2,
+                          read_timeout=read_timeout, write_timeout=write_timeout)
     else:
-        await __send_text(CHAT_ID, '<b>CDN 记录更新失败, 详情见日志</b>', parse_mode=ParseMode.HTML)
+        await __send_text(CHAT_ID, '<b>CDN 记录更新失败, 详情见日志</b>', parse_mode=ParseMode.HTML,
+                          read_timeout=read_timeout, write_timeout=write_timeout)

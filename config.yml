@@ -21,5 +21,3 @@ notify:
     enabled: true # 是否开启 Telegram Bot 通知
     telegram_bot_token: !ENV ${TELEGRAM_BOT_TOKEN}
     telegram_chat_id: !ENV ${TELEGRAM_CHAT_ID}
-
-
