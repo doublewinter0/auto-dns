@@ -5,6 +5,7 @@ from typing import List, Tuple, Union
 import prettytable as pt
 import telegram
 from prettytable import ALL
+
 from telegram.constants import ParseMode
 
 from src.constant import NumberConstant
@@ -36,7 +37,7 @@ async def __send_text(chat_id: Union[int, str], text: str, parse_mode: str, read
 
 async def send_nip_info(nip_info: List[Tuple], read_timeout=NumberConstant.TEN,
                         write_timeout=NumberConstant.TEN) -> None:
-    header = ['IP_ADDR', 'DELAY(ms)', 'DOWNLOAD(MB/s)']
+    header = ['IP_ADDR', 'DLY(ms)', 'DL(MB/s)']
     table = pt.PrettyTable(header, border=True, hrules=ALL)
     for h in header:
         table.align[h] = 'c'
