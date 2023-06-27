@@ -4,7 +4,7 @@ ENV TZ Asia/Shanghai
 ENV APP cdn-proxy
 
 LABEL maintainer="erdong.me@gamil.com"
-LABEL version="1.0.1"
+LABEL version="1.1.0"
 
 VOLUME /app
 

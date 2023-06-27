@@ -1,7 +1,6 @@
 -i https://pypi.tuna.tsinghua.edu.cn/simple
 APScheduler
-requests
-aiohttp
+httpx
 PyYAML
 python-telegram-bot
 pythonping

@@ -44,9 +44,9 @@ class CDN:
 
         cp = cls.__pc.cp
         if cp.enabled:
-            with ClashClient(cp) as client:
-                client.login()
-                flag = client.switch_clash(False)
+            async with ClashClient(cp) as client:
+                await client.login()
+                flag = await client.switch_clash(False)
                 if not flag:
                     return
                 await asyncio.sleep(NumberConstant.THIRTY)
@@ -54,7 +54,7 @@ class CDN:
                 logger.info('开始获取优质 ip...')
                 nip_info = await cls.__update_rec(cur_recs)
 
-                client.switch_clash(True)
+                await client.switch_clash(True)
                 # await asyncio.sleep(NumberConstant.SIXTY)
         else:
             logger.info('开始获取优质 ip...')
