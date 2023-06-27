@@ -1,7 +1,7 @@
 FROM python:3-slim
 
 ENV TZ Asia/Shanghai
-ENV APP cdn-proxy
+ENV APP auto-dns
 
 LABEL maintainer="erdong.me@gamil.com"
 LABEL version="1.1.0"

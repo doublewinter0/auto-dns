@@ -1,15 +1,15 @@
 # version: "3.8"
 
 services:
-  cdn-proxy:
+  auto-dns:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: cdn-proxy
+    container_name: auto-dns
     env_file:
       - ./.env
-    hostname: cdn-proxy
-    image: erdong/cdn-proxy:latest
+    hostname: auto-dns
+    image: erdong/auto-dns:latest
     network_mode: "host"
     privileged: true
     restart: always
