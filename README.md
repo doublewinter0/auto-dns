@@ -87,3 +87,14 @@ Docker
 ```shell
 sudo docker compose up --build -d
 ```
+
+## :sparkles: Star History :sparkles:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=doublewinter0/auto-dns&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=doublewinter0/auto-dns&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=doublewinter0/auto-dns&type=Date" />
+</picture>
+
+## 支持我
+如果我们这个项目对你有所帮助，请给我一颗 ⭐️ 吧！
