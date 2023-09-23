@@ -97,4 +97,4 @@ sudo docker compose up --build -d
 </picture>
 
 ## 支持我
-如果我们这个项目对你有所帮助，请给我一颗 ⭐️ 吧！
+如果这个项目对你有所帮助，请给我一颗 ⭐️ 吧！
